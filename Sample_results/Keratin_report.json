@@ -1,0 +1,225 @@
+{
+  "protein_query": "Keratin",
+  "results": {
+    "UniProt": {
+      "verdict": "Invalid",
+      "confidence": 100,
+      "summary": "The provided context is a UniProt website fallback message and does not contain any information about the protein Keratin or its associated fields like organism or protein sequence.",
+      "extracted_fields": {
+        "ORGANISM": null,
+        "PROTEIN_SEQUENCE": null
+      },
+      "evidence": [],
+      "requested_fields": [
+        "ORGANISM",
+        "PROTEIN_SEQUENCE"
+      ],
+      "model": {
+        "provider": "gemini",
+        "name": "gemini-2.5-flash"
+      },
+      "retrieval": {
+        "enabled": true,
+        "retrieval_method": "embedding",
+        "embedding_model": "models/gemini-embedding-001",
+        "chunks_considered": 1,
+        "chunks_sent": 1
+      },
+      "source_url": "https://www.uniprot.org/uniprot/?query=Keratin",
+      "detail_urls": []
+    },
+    "PDB": {
+      "verdict": "Invalid",
+      "confidence": 100,
+      "summary": "The provided context describes the functionalities and resources of the RCSB PDB website, including how protein sequences and annotations are displayed and integrated from various databases. However, it does not contain any specific data or entries related to the protein 'Keratin', nor does it list any organism or protein sequence for 'Keratin'.",
+      "extracted_fields": {
+        "ORGANISM": null,
+        "PROTEIN_SEQUENCE": null
+      },
+      "evidence": [],
+      "requested_fields": [
+        "ORGANISM",
+        "PROTEIN_SEQUENCE"
+      ],
+      "model": {
+        "provider": "gemini",
+        "name": "gemini-2.5-flash"
+      },
+      "retrieval": {
+        "enabled": true,
+        "retrieval_method": "embedding",
+        "embedding_model": "models/gemini-embedding-001",
+        "chunks_considered": 4,
+        "chunks_sent": 4
+      },
+      "source_url": "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22full_text%22%2C%22parameters%22%3A%7B%22value%22%3A%22Keratin%22%7D%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%5D%2C%22logical_operator%22%3A%22and%22%2C%22label%22%3A%22full_text%22%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%2C%22return_type%22%3A%22entry%22%2C%22request_options%22%3A%7B%22paginate%22%3A%7B%22start%22%3A0%2C%22rows%22%3A25%7D%2C%22results_content_type%22%3A%5B%22experimental%22%5D%2C%22sort%22%3A%5B%7B%22sort_by%22%3A%22score%22%2C%22direction%22%3A%22desc%22%7D%5D%2C%22scoring_strategy%22%3A%22combined%22%7D%2C%22request_info%22%3A%7B%22query_id%22%3A%22ea4bb7297a961131c734f99990065071%22%7D%7D",
+      "detail_urls": [
+        "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22text%22%2C%22parameters%22%3A%7B%22attribute%22%3A%22rcsb_entry_info.structure_determination_methodology%22%2C%22operator%22%3A%22exact_match%22%2C%22value%22%3A%22experimental%22%7D%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%5D%2C%22logical_operator%22%3A%22and%22%2C%22label%22%3A%22text%22%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%2C%22return_type%22%3A%22entry%22%2C%22request_options%22%3A%7B%22scoring_strategy%22%3A%22combined%22%2C%22results_content_type%22%3A%5B%22experimental%22%5D%2C%22sort%22%3A%5B%7B%22sort_by%22%3A%22rcsb_accession_info.initial_release_date%22%2C%22direction%22%3A%22desc%22%7D%5D%7D%7D",
+        "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22text%22%2C%22parameters%22%3A%7B%22attribute%22%3A%22rcsb_entry_info.structure_determination_methodology%22%2C%22operator%22%3A%22exact_match%22%2C%22value%22%3A%22integrative%22%7D%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%5D%2C%22logical_operator%22%3A%22and%22%2C%22label%22%3A%22text%22%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%2C%22return_type%22%3A%22entry%22%2C%22request_options%22%3A%7B%22scoring_strategy%22%3A%22combined%22%2C%22results_content_type%22%3A%5B%22experimental%22%5D%2C%22sort%22%3A%5B%7B%22sort_by%22%3A%22rcsb_accession_info.initial_release_date%22%2C%22direction%22%3A%22desc%22%7D%5D%7D%7D",
+        "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22text%22%2C%22parameters%22%3A%7B%22attribute%22%3A%22rcsb_entry_info.structure_determination_methodology%22%2C%22operator%22%3A%22exact_match%22%2C%22value%22%3A%22experimental%22%7D%7D%2C%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22text%22%2C%22parameters%22%3A%7B%22attribute%22%3A%22rcsb_entry_info.structure_determination_methodology%22%2C%22operator%22%3A%22exact_match%22%2C%22value%22%3A%22integrative%22%7D%7D%5D%2C%22logical_operator%22%3A%22or%22%7D%5D%2C%22logical_operator%22%3A%22and%22%2C%22label%22%3A%22text%22%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%2C%22return_type%22%3A%22entry%22%2C%22request_options%22%3A%7B%22scoring_strategy%22%3A%22combined%22%2C%22results_content_type%22%3A%5B%22experimental%22%5D%2C%22sort%22%3A%5B%7B%22sort_by%22%3A%22rcsb_accession_info.initial_release_date%22%2C%22direction%22%3A%22desc%22%7D%5D%7D%7D",
+        "https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22group%22%2C%22nodes%22%3A%5B%7B%22type%22%3A%22terminal%22%2C%22service%22%3A%22text%22%2C%22parameters%22%3A%7B%22attribute%22%3A%22rcsb_entry_info.structure_determination_methodology%22%2C%22operator%22%3A%22exact_match%22%2C%22value%22%3A%22computational%22%7D%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%5D%2C%22logical_operator%22%3A%22and%22%2C%22label%22%3A%22text%22%7D%5D%2C%22logical_operator%22%3A%22and%22%7D%2C%22return_type%22%3A%22entry%22%2C%22request_options%22%3A%7B%22scoring_strategy%22%3A%22combined%22%2C%22results_content_type%22%3A%5B%22computational%22%5D%7D%7D",
+        "https://www.rcsb.org/docs/sequence-viewers/sequence-annotations-viewer"
+      ]
+    },
+    "NCBI Protein": {
+      "verdict": "Valid",
+      "confidence": 95,
+      "summary": "The context provides multiple entries for 'keratin' from various organisms in the NCBI Protein database. Information for 'keratin [Homo sapiens]' (Accession: AAB59562.1) is available, including its organism and protein length, but the literal amino acid sequence is not explicitly quoted in the provided text.",
+      "extracted_fields": {
+        "ORGANISM": "Homo sapiens",
+        "PROTEIN_SEQUENCE": null
+      },
+      "evidence": [
+        {
+          "quote": "keratin [Homo sapiens]",
+          "why_relevant": "Directly identifies the protein query and its organism."
+        },
+        {
+          "quote": "472 aa protein",
+          "why_relevant": "Confirms it is a protein and indicates its length, but the sequence itself is not provided."
+        },
+        {
+          "quote": "Accession: AAB59562.1",
+          "why_relevant": "Provides a unique identifier for the specific protein entry."
+        }
+      ],
+      "requested_fields": [
+        "ORGANISM",
+        "PROTEIN_SEQUENCE"
+      ],
+      "model": {
+        "provider": "gemini",
+        "name": "gemini-2.5-flash"
+      },
+      "retrieval": {
+        "enabled": true,
+        "retrieval_method": "embedding",
+        "embedding_model": "models/gemini-embedding-001",
+        "chunks_considered": 6,
+        "chunks_sent": 6
+      },
+      "source_url": "https://www.ncbi.nlm.nih.gov/protein/?term=Keratin",
+      "detail_urls": [
+        "https://www.ncbi.nlm.nih.gov/gene/103189121",
+        "https://www.ncbi.nlm.nih.gov/protein/AAB30058.2",
+        "https://www.ncbi.nlm.nih.gov/protein/BAB16373.1",
+        "https://www.ncbi.nlm.nih.gov/protein/AAB59562.1",
+        "https://www.ncbi.nlm.nih.gov/protein/AKG02532.1"
+      ]
+    },
+    "InterPro": {
+      "verdict": "Invalid",
+      "confidence": 100,
+      "summary": "The provided context indicates that the InterPro website is still loading and requires JavaScript, therefore no information about Keratin or its requested fields can be extracted.",
+      "extracted_fields": {
+        "ORGANISM": null,
+        "PROTEIN_SEQUENCE": null
+      },
+      "evidence": [
+        {
+          "quote": "Loading the InterPro website, please wait.",
+          "why_relevant": "Indicates that the website content, from which data would be extracted, is not yet available."
+        },
+        {
+          "quote": "InterPro requires JavaScript to work, please enable JavaScript or use a browser supporting JavaScript",
+          "why_relevant": "Further explains why the content is not loaded and no data can be accessed."
+        }
+      ],
+      "requested_fields": [
+        "ORGANISM",
+        "PROTEIN_SEQUENCE"
+      ],
+      "model": {
+        "provider": "gemini",
+        "name": "gemini-2.5-flash"
+      },
+      "retrieval": {
+        "enabled": true,
+        "retrieval_method": "embedding",
+        "embedding_model": "models/gemini-embedding-001",
+        "chunks_considered": 1,
+        "chunks_sent": 1
+      },
+      "source_url": "https://www.ebi.ac.uk/interpro/search?q=Keratin",
+      "detail_urls": []
+    },
+    "KEGG": {
+      "verdict": "Invalid",
+      "confidence": 90,
+      "summary": "The context lists numerous proteins explicitly identified as 'keratin, type I cytoskeletal' or 'keratin, type II cytoskeletal' (e.g., KRT1, KRT8, KRT18). However, the detailed entries that provide protein sequences are for related proteins such as 'keratinocyte differentiation factor 1', 'keratin-associated protein 5-5-like isoform X1', 'keratinocyte-associated transmembrane protein 2 precursor', 'keratinocyte proline-rich protein', and 'keratinocyte-associated protein 3', none of which are the exact protein query 'Keratin' itself.",
+      "extracted_fields": {
+        "ORGANISM": null,
+        "PROTEIN_SEQUENCE": null
+      },
+      "evidence": [
+        {
+          "quote": "hsa:3856 K07605 type II keratin, basic | (RefSeq) KRT8, CARD2, CK-8, CK8, CYK8, K2C8, K8, KO; keratin, type II cytoskeletal 8 isoform 2",
+          "why_relevant": "This entry is for a specific Keratin protein, but its detailed sequence information is not provided in the context."
+        },
+        {
+          "quote": "hsa:3875 K07604 type I keratin, acidic | (RefSeq) KRT18, CK-18, CYK18, K18; keratin, type I cytoskeletal 18",
+          "why_relevant": "This entry is for a specific Keratin protein, but its detailed sequence information is not provided in the context."
+        },
+        {
+          "quote": "hsa:126695 K23346 keratinocyte differentiation factor 1 | (RefSeq) KDF1, C1orf172, ECTD12; keratinocyte differentiation factor 1 ... AA seq ...",
+          "why_relevant": "This entry provides a protein sequence but is for 'keratinocyte differentiation factor 1', which is not the exact query 'Keratin'."
+        }
+      ],
+      "requested_fields": [
+        "ORGANISM",
+        "PROTEIN_SEQUENCE"
+      ],
+      "model": {
+        "provider": "gemini",
+        "name": "gemini-2.5-flash"
+      },
+      "retrieval": {
+        "enabled": true,
+        "retrieval_method": "embedding",
+        "embedding_model": "models/gemini-embedding-001",
+        "chunks_considered": 4,
+        "chunks_sent": 4
+      },
+      "source_url": "https://www.genome.jp/dbget-bin/www_bfind_sub?mode=bfind&max_hit=100&locale=en&serv=kegg&dbkey=genes&keywords=Keratin",
+      "detail_urls": [
+        "https://www.genome.jp/entry/hsa:126695",
+        "https://www.genome.jp/entry/hsa:448834",
+        "https://www.genome.jp/entry/hsa:200634",
+        "https://www.genome.jp/entry/hsa:124901165",
+        "https://www.genome.jp/entry/hsa:56951"
+      ]
+    },
+    "STRING": {
+      "verdict": "Invalid",
+      "confidence": 100,
+      "summary": "The provided context is an error message and does not contain any information about the protein query 'Keratin' or the requested fields.",
+      "extracted_fields": {
+        "ORGANISM": null,
+        "PROTEIN_SEQUENCE": null
+      },
+      "evidence": [
+        {
+          "quote": "Enable JavaScript and cookies to continue",
+          "why_relevant": "This is the entire context, which is an error message and not protein-related content."
+        }
+      ],
+      "requested_fields": [
+        "ORGANISM",
+        "PROTEIN_SEQUENCE"
+      ],
+      "model": {
+        "provider": "gemini",
+        "name": "gemini-2.5-flash"
+      },
+      "retrieval": {
+        "enabled": true,
+        "retrieval_method": "embedding",
+        "embedding_model": "models/gemini-embedding-001",
+        "chunks_considered": 1,
+        "chunks_sent": 1
+      },
+      "source_url": "https://string-db.org/newstring_cgi/show_network_section.pl?identifier=Keratin",
+      "detail_urls": []
+    }
+  }
+}

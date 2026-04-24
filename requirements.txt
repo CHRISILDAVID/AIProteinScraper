@@ -1,6 +1,10 @@
 streamlit 
 langchain 
 langchain_ollama
+langchain-openai
+langchain-google-genai
+chromadb
+langchain-chroma
 selenium
 beautifulsoup4
 lxml 
