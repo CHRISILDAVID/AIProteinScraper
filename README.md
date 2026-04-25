@@ -120,11 +120,11 @@ The DOM engine supports several proxy backends if direct requests are failing:
 
 RAG mode uses **vector embeddings + ChromaDB** for semantic chunk retrieval. The embedding provider is automatically matched to your inference provider selection.
 
-| Provider | Default Embedding Model | Config Variable |
-|----------|------------------------|------------------|
-| Gemini   | `models/gemini-embedding-001` | `EMBEDDING_MODEL_GEMINI` |
-| OpenAI   | `text-embedding-3-small` | `EMBEDDING_MODEL_OPENAI` |
-| Ollama   | `nomic-embed-text`       | `EMBEDDING_MODEL_OLLAMA` |
+| Provider        | Default Embedding Model             | Config Variable                     |
+|-----------------|-------------------------------------|-------------------------------------|
+| Gemini          | `models/gemini-embedding-001`       | `EMBEDDING_MODEL_GEMINI`            |
+| OpenAI          | `text-embedding-3-small`            | `EMBEDDING_MODEL_OPENAI`            |
+| Ollama          | `nomic-embed-text`                  | `EMBEDDING_MODEL_OLLAMA`            |
 
 *If embedding fails (e.g., Ollama not running), the system automatically falls back to keyword-based chunk scoring.*
 
