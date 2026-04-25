@@ -1,5 +1,6 @@
 # Python
 __pycache__/
+_pycache_/
 *.py[cod]
 *.pyo
 
@@ -12,6 +13,7 @@ venv/
 
 # IDE Specific
 .vscode/
+_vscode/
 .idea/
 
 # Logs
