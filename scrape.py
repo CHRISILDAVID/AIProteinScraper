@@ -1,4 +1,6 @@
+from selenium import webdriver
 from selenium.webdriver import Remote, ChromeOptions
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chromium.remote_connection import ChromiumRemoteConnection
 from selenium.common.exceptions import WebDriverException
 from bs4 import BeautifulSoup
@@ -17,6 +19,13 @@ dotenv_path = Path('.env')
 load_dotenv(dotenv_path=dotenv_path)
 
 SBR_WEBDRIVER = os.getenv("SBR_WEBDRIVER")
+# Optional local Selenium settings (used when SBR_WEBDRIVER is empty)
+CHROME_BIN = os.getenv("CHROME_BIN", "").strip()
+CHROMEDRIVER_PATH = os.getenv("CHROMEDRIVER_PATH", "").strip()
+SELENIUM_HEADLESS = (
+    os.getenv("SELENIUM_HEADLESS", "true").strip().lower()
+    not in {"0", "false", "no", "off"}
+)
 # Add environment variables for alternative proxy methods
 AZURE_PROXY_URL = os.getenv("AZURE_PROXY_URL", None)
 PROXY_USERNAME = os.getenv("PROXY_USERNAME", None)
@@ -104,29 +113,56 @@ def _get_proxyscrape_proxy_pool():
 
     return proxies
 
-def scrape_website(website):
-    if not SBR_WEBDRIVER:
-        print("SBR_WEBDRIVER is not configured.")
-        return None
 
-    print(f"SBR_WEBDRIVER: {SBR_WEBDRIVER}")
-    print("Connecting to Scraping Browser...")
+def _build_local_chrome_options():
+    options = ChromeOptions()
+    if CHROME_BIN:
+        options.binary_location = CHROME_BIN
+    if SELENIUM_HEADLESS:
+        options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920,1080")
+    return options
+
+
+def _get_local_chrome_driver():
+    options = _build_local_chrome_options()
+    if CHROMEDRIVER_PATH:
+        service = Service(executable_path=CHROMEDRIVER_PATH)
+        return webdriver.Chrome(service=service, options=options)
+    return webdriver.Chrome(options=options)
+
+def scrape_website(website):
+    if SBR_WEBDRIVER:
+        print(f"SBR_WEBDRIVER: {SBR_WEBDRIVER}")
+        print("Connecting to Scraping Browser...")
+        try:
+            sbr_connection = ChromiumRemoteConnection(SBR_WEBDRIVER, "goog", "chrome")
+            with Remote(sbr_connection, options=ChromeOptions()) as driver:
+                driver.get(website)
+                print("Waiting captcha to solve...")
+                solve_res = driver.execute(
+                    "executeCdpCommand",
+                    {
+                        "cmd": "Captcha.waitForSolve",
+                        "params": {"detectTimeout": 10000},
+                    },
+                )
+                print("Captcha solve status:", solve_res["value"]["status"])
+                print("Navigated! Scraping page content...")
+                html = driver.page_source
+                return html
+        except WebDriverException as exc:
+            print(f"Selenium could not open {website}: {exc}")
+            return None
+
+    print("SBR_WEBDRIVER is not configured. Using local headless Chrome.")
     try:
-        sbr_connection = ChromiumRemoteConnection(SBR_WEBDRIVER, "goog", "chrome")
-        with Remote(sbr_connection, options=ChromeOptions()) as driver:
+        with _get_local_chrome_driver() as driver:
             driver.get(website)
-            print("Waiting captcha to solve...")
-            solve_res = driver.execute(
-                "executeCdpCommand",
-                {
-                    "cmd": "Captcha.waitForSolve",
-                    "params": {"detectTimeout": 10000},
-                },
-            )
-            print("Captcha solve status:", solve_res["value"]["status"])
-            print("Navigated! Scraping page content...")
-            html = driver.page_source
-            return html
+            return driver.page_source
     except WebDriverException as exc:
         print(f"Selenium could not open {website}: {exc}")
         return None

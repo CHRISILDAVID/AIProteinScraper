@@ -1,0 +1,14 @@
+.env
+.venv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite
+*.db
+.git/
+.github/
+.vscode/
+Sample_results/
+chromedriver
